@@ -17,6 +17,7 @@ navigator.mediaDevices.getUserMedia({
 }).then(stream => {
     myVideoStream = stream;
     addVideoStream(myVideo, stream)
+    
     myPeer.on('call', call => {
       call.answer(stream)
       const video = document.createElement('video')
@@ -40,9 +41,9 @@ myPeer.on('open', id => {
 })
 
 
-  // input value
+  
   let text = $("input");
-  // when press enter send message
+  //press enter send message
   $('html').keydown(function (e) {
     if (e.which == 13 && text.val().length !== 0) {
       socket.emit('message', text.val());
@@ -54,8 +55,10 @@ myPeer.on('open', id => {
     scrollToBottom()
   })
 
-
-
+ 
+const disconnect = ()=>{
+  document.location= `https://colleague-meet-backend.herokuapp.com/`
+}
 
 function connectToNewUser(userId, myStream) {
   const call = myPeer.call(userId, myStream)
@@ -142,5 +145,4 @@ const setPlayVideo = () => {
   `
   document.querySelector('.main__video_button').innerHTML = html;
 }
-
 

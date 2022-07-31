@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>colleague meet</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+   <style>
+      body{
+        background-color: rgb(56, 54, 54);
+        padding:20px;
+        font-family: 'Roboto', sans-serif;
+      }
+      .share{
+        color: white;
+        margin-top: 80px;
+      }
+      .inputid{
+        display: flex;
+      }
+      input{
+        height: 40px;
+        width: 300px;
+        font-size: 17px;
+      }
+      button{
+        color:white;
+        background: rgb(161, 161, 161);
+        height: 45px;
+        width: 80px;
+        font-size: 18px;
+
+      }
+   </style>
+</head>
+<body>
+   <center >
+    <h1 class="share">Colleague Meet</h1>
+    <h2 class="share">Use and Share the meeting Id to join : <%= meetId %></h2>
+    <form class="inpputid" id="meet_form" >
+        <h2 class="share">Join a meeting : </h2>
+        <input required type="text" name='meetid' placeholder="Enter the Meeting id here..."/>
+        <button type="submit" >Join</button>
+    </form>
+   </center>
+
+<script type="text/javascript">
+    const form = document.getElementById('meet_form');
+    form.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      const id = e.target.meetid.value.trim();
+      document.location = `https://colleague-meet-backend.herokuapp.com/${id}`;
+    })
+ </script>
+
+</body>
+</html>
