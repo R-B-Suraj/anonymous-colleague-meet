@@ -57,7 +57,7 @@ myPeer.on('open', id => {
 
  
 const disconnect = ()=>{
-  document.location= `http://localhost:8000/`
+  document.location= `https://colleague-meet-backend.herokuapp.com/`
 }
 
 function connectToNewUser(userId, myStream) {
