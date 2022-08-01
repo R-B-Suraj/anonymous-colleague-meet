@@ -38,7 +38,7 @@ EJS view engine <br/>
 
 <p align="center">
 <img src="./meet-min.png"
-  alt="home"
+  alt="meet"
   width="720" height="420" style="border-style: solid">
 </p>
 <br/>
@@ -46,7 +46,7 @@ EJS view engine <br/>
 
 <p align="center">
 <img src="./mobile_meet-min.jpg"
-  alt="home"
+  alt="meet"
   width="292" height="530" style="border-style: solid">
 </p>
 <br/>
