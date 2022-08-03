@@ -15,6 +15,7 @@ EJS view engine <br/>
 - [x] Start a meeting or Join a meeting using shared meeting ID
 - [x] live meeting link can directly be used to join meeting
 - [x] Chat feature, Audio/Video on/off , anonymous chat
+- [x] meeting chat for a particular meeting id is stored in local storage for recovery in case of network failure
 
 
 ## Demo images
