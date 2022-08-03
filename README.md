@@ -1,5 +1,6 @@
 # [[anonymous-colleague-meet](https://colleague-meet-backend.herokuapp.com/)]
-A simple video chat application where you can chat with your colleague anonymously
+A simple video chat application where you can chat with your colleague anonymously.
+Anonymity is important to get honest Feedback.
 [[App link](https://colleague-meet-backend.herokuapp.com/)]
 
 ## Technology used
