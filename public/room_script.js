@@ -32,13 +32,16 @@ navigator.mediaDevices.getUserMedia({
   
 })
 
+myPeer.on('open', id => {
+  socket.emit('join-room', ROOM_ID, id)
+})
+
+
+
 socket.on('user-disconnected', userId => {
   if (peers[userId]) peers[userId].close()
 })
 
-myPeer.on('open', id => {
-  socket.emit('join-room', ROOM_ID, id)
-})
 
 
   
@@ -50,10 +53,43 @@ myPeer.on('open', id => {
       text.val('')
     }
   });
-  socket.on("createMessage", message => {
-    $("ul").append(`<li class="message"><b>user</b><br/>${message}</li>`);
+
+  
+let chats_id = localStorage.getItem('meet_id');
+let chats = localStorage.getItem("meet_chats");
+
+if(!chats_id){
+  chats_id = ROOM_ID;
+}
+else if(chats_id != ROOM_ID){
+  localStorage.setItem('meet_chats',[]);
+}
+else{
+    
+  if(!chats){
+    localStorage.setItem("meet_chats",[]);
+    chats = [];
+  }
+  else{
+    chats = chats.split(',');
+    for(let i=0; i<chats.length; i++){
+      $("ul").append(`<li class="message"><b>user</b><br/>${chats[i]}</li>`);
+    }
     scrollToBottom()
-  })
+  }
+
+}
+
+localStorage.setItem('meet_id',ROOM_ID);
+
+
+socket.on("createMessage", message => {
+  $("ul").append(`<li class="message"><b>user</b><br/>${message}</li>`);
+  
+  chats.push(message);
+  localStorage.setItem('meet_chats',chats);
+  scrollToBottom()
+})
 
  
 const disconnect = ()=>{
